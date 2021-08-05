@@ -1,16 +1,3 @@
-node_modules/
-_sourcemaps/
-_accessibility-reports/
-_accessibility-logs/
-build/
-!gitignore
-!package.json
-!package-lock.json
-**/a11y-report.json
-**/.tmp
-debug.log
-
-# Local Netlify folder
-.netlify
-.DS_Store
-.eslint.cache
+.snowpack
+build
+node_modules

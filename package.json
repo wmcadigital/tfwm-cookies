@@ -1,72 +1,20 @@
 {
-  "name": "tfwm-cookies",
-  "version": "0.0.0",
-  "description": "A library of typography, visual styles and user interface components which are documented for Transport for West Midlands.",
-  "homepage": "https://github.com/wmcadigital/tfwm-cookies",
-  "author": "WMCA",
-  "main": "build/index.html",
-  "files": [
-    "build/*"
-  ],
-  "repository": "https://github.com/wmcadigital/tfwm-cookies.git",
-  "copyright": "WMCA",
-  "sasslintConfig": ".sass-lint.yml",
-  "browserslist": [
-    "ie 11",
-    "last 2 versions",
-    "ie 8",
-    "ie 9",
-    "iOS 9"
-  ],
-  "release": {
-    "branches": [
-      "main"
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git",
-      "@semantic-release/github"
-    ]
-  },
   "scripts": {
-    "upgrade-packages": "ncu -u",
-    "start": "NODE_ENV=development gulp",
-    "build": "gulp build"
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "test": "echo \"This template does not include a test runner by default.\" && exit 1",
+    "format": "prettier --write \"src/**/*.{ts,js}\"",
+    "lint": "prettier --check \"src/**/*.{ts,js}\""
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.15",
-    "@babel/preset-env": "^7.13.15",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "browser-sync": "^2.26.14",
-    "dompurify": "^2.2.7",
-    "eslint": "^7.23.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-html": "^6.1.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "glob": "^7.1.6",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-eslint": "^6.0.0",
-    "gulp-load-plugins": "^2.0.6",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-sass-lint": "^1.4.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "npm-check-updates": "^11.4.1",
-    "nunjucks": "^3.2.3",
-    "nunjucks-markdown": "^2.0.1",
+    "@snowpack/plugin-typescript": "^1.2.1",
+    "@types/canvas-confetti": "^1.0.0",
+    "@types/snowpack-env": "^2.3.3",
     "prettier": "^2.2.1",
-    "semantic-release": "^17.4.2",
-    "webpack-stream": "^6.1.2"
-  },
-  "dependencies": {}
+    "snowpack": "^3.3.7",
+    "typescript": "^4.2.4"
+  }
 }
