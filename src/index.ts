@@ -1,7 +1,6 @@
-import cookieLogic from './cookie-logic';
-import dsCookies from './ds-cookies';
+import cookiePolicyLogic from './cookie-policy-logic';
 
-window.addEventListener('DOMContentLoaded', () => {
-  cookieLogic();
-  dsCookies();
+// Wait until everything is loaded
+window.addEventListener('load', () => {
+  cookiePolicyLogic();
 });

@@ -1,11 +1,15 @@
-import getCookie from './getCookie';
+import googleTagManager from './third-parties/googleTagManager';
+import getCookie from './helpers/getCookie';
+// Types
 import type { CookiecategoryType, CookiesPolicy } from './types';
 
-const cookieLogic = () => {
+const cookiePolicyLogic = () => {
   const cookiesPolicy: CookiesPolicy = JSON.parse(getCookie('cookies-policy')); // Get the cookiesPolicy from our cookies
   const plainTextScripts = document.querySelectorAll<HTMLScriptElement>(
     'script[data-cookiescript="accepted"][type="plain/text"]',
   ); // Get all scripts on the page using that want to use this logic
+
+  if (cookiesPolicy.performance) googleTagManager(); // Run Google Tag Manager (includes analytics and hotjar) if user has enabled performance cookies
 
   if (!cookiesPolicy || !plainTextScripts.length) return; // No cookies policy set/found or script tags found on page...break out and avoid running logic below
 
@@ -32,4 +36,4 @@ const cookieLogic = () => {
   });
 };
 
-export default cookieLogic;
+export default cookiePolicyLogic;
