@@ -41,6 +41,149 @@
       ></pre>
     </div>
 
+    <!-- MANAGE COOKIES -->
+    <div class="wmnds-p-md wmnds-cookies-manager">
+      <div class="wmnds-container wmnds-col-1 wmnds-col-sm-1 wmnds-col-lg-3-4">
+        <h1 class="wmnds-p-t-lg wmnds-m-b-lg">Manage Cookies</h1>
+        <div
+          class="wmnds-cookies-manager__success-message wmnds-m-b-md"
+          style="display: none"
+        >
+          <div class="wmnds-msg-summary wmnds-msg-summary--success-fill">
+            <div class="wmnds-msg-summary__header">
+              <svg class="wmnds-msg-summary__icon">
+                <use
+                  xlink:href="#wmnds-general-success"
+                  href="#wmnds-general-success"
+                ></use>
+              </svg>
+              <h3 class="wmnds-msg-summary__title">
+                Your cookie settings were saved
+              </h3>
+            </div>
+            <div class="wmnds-msg-summary__info">
+              <p>
+                You can change these settings at any time by clicking the link
+                in the page footer.
+              </p>
+              <p class="wmnds-cookies-manager__previous-page">
+                <a
+                  class="wmnds-link wmnds-cookies-manager__previous-page"
+                  href=""
+                  style="color: white"
+                  >Go back to the page you were looking at</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <form class="wmnds-cookies-manager__form" action="#">
+          <p class="wmnds-m-b-md">
+            Check your settings below and select the cookies you’re happy with.
+          </p>
+          <p>These settings only apply to wmnetwork.co.uk</p>
+          <div
+            class="wmnds-cookies-manager__preferences wmnds-p-b-md wmnds-p-t-md"
+          >
+            <div class="wmnds-fe-group wmnds-m-none">
+              <div class="wmnds-fe-checkboxes">
+                <span class="wmnds-fe-checkboxes__desc"> </span>
+                <label class="wmnds-fe-checkboxes__container">
+                  <div class="wmnds-m-b-lg">
+                    <h3 class="wmnds-m-none wmnds-p-b-sm">Essential cookies</h3>
+                    Without these cookies our website won’t work properly. They
+                    help you to access secure areas like accounts and tools such
+                    as the journey planner.
+                  </div>
+                  <input
+                    id="essential-cookies"
+                    class="wmnds-fe-checkboxes__input"
+                    value=""
+                    name="essential-cookies"
+                    type="checkbox"
+                    checked="checked"
+                    disabled="disabled"
+                  />
+                  <span class="wmnds-fe-checkboxes__checkmark">
+                    <svg class="wmnds-fe-checkboxes__icon">
+                      <use
+                        xlink:href="#wmnds-general-checkmark"
+                        href="#wmnds-general-checkmark"
+                      ></use>
+                    </svg>
+                  </span>
+                </label>
+                <label class="wmnds-fe-checkboxes__container">
+                  <div class="wmnds-m-b-lg">
+                    <h3 class="wmnds-m-none wmnds-p-b-sm">
+                      Functional cookies
+                    </h3>
+                    These cookies help us to personalise our services to suit
+                    your needs, like saving your favourite transport services.
+                  </div>
+                  <input
+                    id="functional-cookies"
+                    class="wmnds-fe-checkboxes__input"
+                    value=""
+                    name="functional-cookies"
+                    type="checkbox"
+                  />
+                  <span class="wmnds-fe-checkboxes__checkmark">
+                    <svg class="wmnds-fe-checkboxes__icon">
+                      <use
+                        xlink:href="#wmnds-general-checkmark"
+                        href="#wmnds-general-checkmark"
+                      ></use>
+                    </svg>
+                  </span>
+                </label>
+                <label class="wmnds-fe-checkboxes__container">
+                  <div class="wmnds-m-b-lg">
+                    <h3 class="wmnds-m-none wmnds-p-b-sm">
+                      Performance cookies
+                    </h3>
+                    These cookies collect information about how you’re using our
+                    services, for instance popular pages or errors. We use this
+                    information to make decisions when improving our services.
+                    We do not use any information collected to identify you as
+                    an individual.
+                  </div>
+                  <input
+                    id="performance-cookies"
+                    class="wmnds-fe-checkboxes__input"
+                    value=""
+                    name="performance-cookies"
+                    type="checkbox"
+                  />
+                  <span class="wmnds-fe-checkboxes__checkmark">
+                    <svg class="wmnds-fe-checkboxes__icon">
+                      <use
+                        xlink:href="#wmnds-general-checkmark"
+                        href="#wmnds-general-checkmark"
+                      ></use>
+                    </svg>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="wmnds-btn" type="submit">Save preferences</button>
+          </div>
+          <div class="wmnds-m-t-lg">
+            <p>
+              If you change your mind,
+              <a
+                href="https://www.tfwm.org.uk/policies/privacy-and-cookies-policy/"
+                >visit our Policies page</a
+              >
+              to change your cookie preferences.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script>
       function getCookies() {
         var cookies = document.cookie.split(';');
