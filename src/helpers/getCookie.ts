@@ -11,7 +11,8 @@ const getCookie = (cname: string) => {
       return c.substring(name.length, c.length);
     }
   }
-  return '{}';
+
+  return '';
 };
 
 export default getCookie;

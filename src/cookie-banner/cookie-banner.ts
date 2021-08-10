@@ -66,25 +66,27 @@ const cookiesJS = () => {
     const message = document.querySelector<HTMLElement>(
       '.wmnds-cookies-manager__success-message',
     );
-    if (message) {
-      const link = message.querySelector<HTMLLinkElement>(
-        '.wmnds-cookies-manager__previous-page a',
-      );
-      if (link) {
-        if (
-          (document.referrer === '' ||
-            document.referrer === window.location.href) &&
-          link.parentElement
-        ) {
-          link.parentElement.style.display = 'none';
-        } else {
-          // sends user to the previous page - the one opened before he/she open the cookies manager page
-          link.href = document.referrer;
-        }
+
+    if (!message) return;
+
+    const link = message.querySelector<HTMLLinkElement>(
+      '.wmnds-cookies-manager__previous-page a',
+    );
+
+    if (link) {
+      if (
+        (document.referrer === '' ||
+          document.referrer === window.location.href) &&
+        link.parentElement
+      ) {
+        link.parentElement.style.display = 'none';
+      } else {
+        // sends user to the previous page - the one opened before he/she open the cookies manager page
+        link.href = document.referrer;
       }
-      // display the success message (updated)
-      message.style.display = 'block';
     }
+    // display the success message (updated)
+    message.style.display = 'block';
   };
 
   const savePreferences = () => {
@@ -98,7 +100,6 @@ const cookiesJS = () => {
         for (let i = 0; i < elements.length; i += 1) {
           selectedOptions[i] = elements.item(i).checked;
         }
-      console.log(selectedOptions);
 
       setCookiePolicy(...(selectedOptions as [boolean, boolean, boolean]));
       setCookie('cookies-preference', true, 181);
@@ -108,6 +109,7 @@ const cookiesJS = () => {
 
   const cookiesScan = () => {
     // if cookies-preference doesn't exist, show cookie banner
+    console.log(checkCookie('cookies-preference'));
     if (!checkCookie('cookies-preference')) {
       showCookieBanner();
       setCookiePolicy(true, false, false);

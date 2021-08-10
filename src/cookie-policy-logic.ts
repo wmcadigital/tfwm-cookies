@@ -4,6 +4,8 @@ import getCookie from './helpers/getCookie';
 import type { CookiecategoryType, CookiesPolicy } from './types';
 
 const cookiePolicyLogic = () => {
+  if (!getCookie('cookies-policy')) return;
+
   const cookiesPolicy: CookiesPolicy = JSON.parse(getCookie('cookies-policy')); // Get the cookiesPolicy from our cookies
   const plainTextScripts = document.querySelectorAll<HTMLScriptElement>(
     'script[data-cookiescript="accepted"][type="plain/text"]',
