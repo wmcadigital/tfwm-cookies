@@ -1,5 +1,5 @@
+import { getCookie } from './helpers';
 import googleTagManager from './third-parties/googleTagManager';
-import getCookie from './helpers/getCookie';
 // Types
 import type { CookiecategoryType, CookiesPolicy } from './types';
 

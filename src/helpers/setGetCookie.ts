@@ -1,5 +1,5 @@
 // Set cookie based on name, value and expiry date supplied
-const setCookie = (
+export const setCookie = (
   cname: string,
   cvalue: string | boolean,
   exdays: number,
@@ -14,4 +14,19 @@ const setCookie = (
   document.cookie = `${cname}=${cvalue};${expires};${domain};path=/`;
 };
 
-export default setCookie;
+// Get cookie based on name supplied
+export const getCookie = (cname: string) => {
+  const name = `${cname}=`;
+  const ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i += 1) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+
+  return '';
+};
