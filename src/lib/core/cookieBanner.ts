@@ -1,5 +1,5 @@
-import cookiePolicyLogic from '@app/cookie-policy-logic';
-import { setCookie, setCookiePolicy, hideCookieBanner } from '@app/helpers';
+import cookiePolicyLogic from '@app/lib/core/cookiePolicyLogic';
+import { setCookie, setCookiePolicy, hideCookieBanner } from '@app/lib/helpers';
 
 const acceptAllCookies = () => {
   setCookiePolicy(true, true, true);
@@ -17,7 +17,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
 };
 
 // START HERE
-const cookieBannerLogic = () => {
+const cookieBanner = () => {
   const isInIframe =
     window.frameElement && window.frameElement.nodeName === 'IFRAME'; // check if we are in an iframe
 
@@ -33,4 +33,4 @@ const cookieBannerLogic = () => {
   acceptAllCookiesBtn.addEventListener('keydown', handleKeyDown);
 };
 
-export default cookieBannerLogic;
+export default cookieBanner;

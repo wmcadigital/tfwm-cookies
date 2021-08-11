@@ -1,21 +1,18 @@
 // Global helpers
-import cookiePolicyLogic from '@app/cookie-policy-logic';
+import cookiePolicyLogic from '@app/lib/core/cookiePolicyLogic';
 import {
   setCookie,
   getCookie,
   setCookiePolicy,
   showCookieBanner,
   updateCookiePreferences,
-} from '@app/helpers';
+} from '@app/lib/helpers';
 
 const manageCookies = () => {
   // Check if cookie(s) created or not
-  const checkCookie = (cname: string) => {
+  const checkCookie = (cname: string): boolean => {
     const isCookieCreated = getCookie(cname);
-    if (isCookieCreated === '') {
-      return false;
-    }
-    return true;
+    return !!isCookieCreated;
   };
 
   const updateAndShowSuccessMessage = () => {
@@ -33,6 +30,7 @@ const manageCookies = () => {
     message.style.display = 'block';
 
     if (!link) return;
+
     const { referrer } = document;
 
     if (

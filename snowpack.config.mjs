@@ -30,7 +30,15 @@ export default {
   ],
   optimize: {
     /* Example: Bundle your final build: */
-    // "bundle": true,
+    entrypoints: ['src/lib/index.ts'],
+    bundle: true,
+    // loader?: {[ext: string]: Loader},
+    sourcemap: 'external',
+    splitting: false,
+    treeshake: true,
+    manifest: true,
+    minify: false,
+    target: 'es2017',
   },
   packageOptions: {
     /* ... */

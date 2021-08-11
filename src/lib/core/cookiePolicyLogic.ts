@@ -1,14 +1,13 @@
-import { getCookie } from './helpers';
-import googleTagManager from './third-parties/googleTagManager';
+import { getCookiePolicy } from '../helpers';
+import googleTagManager from '../third-parties/googleTagManager';
 // Types
-import type { CookiecategoryType, CookiesPolicy } from './types';
+import type { CookiecategoryType } from '../types';
 
 const cookiePolicyLogic = () => {
-  if (!getCookie('cookies-policy')) return;
+  const cookiesPolicy = getCookiePolicy();
 
-  const cookiesPolicy: CookiesPolicy = JSON.parse(
-    getCookie('cookies-policy') as string,
-  ); // Get the cookiesPolicy from our cookies
+  if (!cookiesPolicy) return;
+
   const plainTextScripts = document.querySelectorAll<HTMLScriptElement>(
     'script[data-cookiescript="accepted"][type="plain/text"]',
   ); // Get all scripts on the page using that want to use this logic
