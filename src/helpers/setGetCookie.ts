@@ -28,5 +28,5 @@ export const getCookie = (cname: string) => {
     }
   }
 
-  return '';
+  return null;
 };

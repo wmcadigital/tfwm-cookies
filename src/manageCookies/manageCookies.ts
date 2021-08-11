@@ -1,11 +1,12 @@
 // Global helpers
+import cookiePolicyLogic from '@app/cookie-policy-logic';
 import {
   setCookie,
   getCookie,
   setCookiePolicy,
   showCookieBanner,
   updateCookiePreferences,
-} from '../helpers';
+} from '@app/helpers';
 
 const manageCookies = () => {
   // Check if cookie(s) created or not
@@ -60,6 +61,7 @@ const manageCookies = () => {
       setCookiePolicy(...(selectedOptions as [boolean, boolean, boolean]));
       setCookie('cookies-preference', true, 181);
       updateAndShowSuccessMessage();
+      cookiePolicyLogic();
     }
   };
 

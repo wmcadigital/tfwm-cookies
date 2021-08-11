@@ -1,4 +1,4 @@
-import { setCookie, setCookiePolicy, hideCookieBanner } from '../helpers';
+import { setCookie, setCookiePolicy, hideCookieBanner } from '@app/helpers';
 
 const acceptAllCookies = () => {
   setCookiePolicy(true, true, true);
