@@ -1,5 +1,8 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 export default {
+  alias: {
+    '@app': './src',
+  },
   mount: {
     public: { url: '/', static: true },
     src: { url: '/dist' },
