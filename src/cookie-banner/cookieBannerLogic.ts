@@ -1,8 +1,10 @@
+import cookiePolicyLogic from '@app/cookie-policy-logic';
 import { setCookie, setCookiePolicy, hideCookieBanner } from '@app/helpers';
 
 const acceptAllCookies = () => {
   setCookiePolicy(true, true, true);
   setCookie('cookies-preference', true, 181);
+  cookiePolicyLogic();
   hideCookieBanner();
 };
 
