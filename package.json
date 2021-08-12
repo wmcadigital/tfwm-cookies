@@ -6,7 +6,6 @@
   "author": "WMCA",
   "repository": "https://github.com/wmcadigital/tfwm-cookies.git",
   "copyright": "WMCA",
-  "sasslintConfig": ".sass-lint.yml",
   "browserslist": {
     "production": [
       ">0.2%",
