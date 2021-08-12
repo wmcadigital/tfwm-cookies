@@ -1,6 +1,6 @@
 {
   "name": "tfwm-cookies",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Logic to assist with users cookie preferences on Transport for West Midlands website and services.",
   "homepage": "https://github.com/wmcadigital/tfwm-cookies",
   "author": "WMCA",
