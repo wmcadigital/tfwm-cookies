@@ -8,6 +8,19 @@ import {
   updateCookiePreferences,
 } from '@app/lib/helpers';
 
+function removeGoogleHotjarCookies() {
+  const cookies = document.cookie.split(';');
+
+  cookies.forEach((cookie) => {
+    const trimCookie = cookie.trim();
+
+    if (!trimCookie.startsWith('_')) return;
+
+    console.log(getCookie(trimCookie));
+    document.cookie = `${trimCookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
+  });
+}
+
 const manageCookies = () => {
   // Check if cookie(s) created or not
   const checkCookie = (cname: string): boolean => {
@@ -16,31 +29,31 @@ const manageCookies = () => {
   };
 
   const updateAndShowSuccessMessage = () => {
-    const message = document.querySelector<HTMLElement>(
+    const successMessage = document.querySelector<HTMLElement>(
       '.wmnds-cookies-manager__success-message',
     );
 
-    if (!message) return;
+    if (!successMessage) return;
 
-    const link = message.querySelector<HTMLLinkElement>(
+    const prevPageLink = successMessage.querySelector<HTMLLinkElement>(
       '.wmnds-cookies-manager__previous-page a',
     );
 
     // display the success message (updated)
-    message.style.display = 'block';
+    successMessage.style.display = 'block';
 
-    if (!link) return;
+    if (!prevPageLink) return;
 
     const { referrer } = document;
 
     if (
       (referrer === '' || referrer === window.location.href) &&
-      link.parentElement
+      prevPageLink.parentElement
     ) {
-      link.parentElement.style.display = 'none';
+      prevPageLink.parentElement.style.display = 'none';
     } else {
       // sends user to the previous page - the one opened before he/she open the cookies manager page
-      link.href = referrer;
+      prevPageLink.href = referrer;
     }
   };
 
@@ -56,8 +69,11 @@ const manageCookies = () => {
           selectedOptions[i] = elements.item(i).checked;
         }
 
+      if (!selectedOptions[2]) removeGoogleHotjarCookies();
       setCookiePolicy(...(selectedOptions as [boolean, boolean, boolean]));
       setCookie('cookies-preference', true, 181);
+      // Goes here
+
       updateAndShowSuccessMessage();
       cookiePolicyLogic();
     }
