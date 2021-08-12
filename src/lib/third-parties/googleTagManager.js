@@ -3,7 +3,7 @@ const googletagmanager = () =>
     w[l] = w[l] || [];
     w[l].push({
       'gtm.start': new Date().getTime(),
-      event: 'gtm.js',
+      event: 'gtm.js'
     });
     var f = d.getElementsByTagName(s)[0],
       j = d.createElement(s),

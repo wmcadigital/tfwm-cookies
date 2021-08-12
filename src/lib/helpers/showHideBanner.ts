@@ -1,6 +1,4 @@
-const cookiesBanner = document.querySelector<HTMLElement>(
-  'header .wmnds-cookies-banner',
-);
+const cookiesBanner = document.querySelector<HTMLElement>('header .wmnds-cookies-banner');
 
 export const hideCookieBanner = () => {
   if (cookiesBanner) cookiesBanner.style.display = 'none';

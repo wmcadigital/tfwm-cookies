@@ -1,0 +1,35 @@
+name: 'Lint code with ESLint'
+
+on:
+  pull_request:
+    branches: [main, next-release]
+    types: [opened, edited, synchronize]
+
+jobs:
+  lint:
+    name: Linting Javascript
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout branch
+      - name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      # Setup node environment
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      # Get modules from cache
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      # Build site
+      - name: Install modules
+        run: npm ci
+      - name: Lint site
+        run: npm run lint

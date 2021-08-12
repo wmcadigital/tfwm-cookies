@@ -9,14 +9,14 @@ const cookiePolicyLogic = () => {
   if (!cookiesPolicy) return;
 
   const plainTextScripts = document.querySelectorAll<HTMLScriptElement>(
-    'script[data-cookiescript="accepted"][type="plain/text"]',
+    'script[data-cookiescript="accepted"][type="plain/text"]'
   ); // Get all scripts on the page using that want to use this logic
 
   if (cookiesPolicy.performance) googleTagManager(); // Run Google Tag Manager (includes analytics and hotjar) if user has enabled performance cookies
 
   if (!cookiesPolicy || !plainTextScripts.length) return; // No cookies policy set/found or script tags found on page...break out and avoid running logic below
 
-  plainTextScripts.forEach((plainTextScript) => {
+  plainTextScripts.forEach(plainTextScript => {
     const { cookiecategory }: CookiecategoryType = plainTextScript.dataset;
 
     // Do a check to see if the cookieCategory on our plain/text script is a cookie the user has accepted via the cookiePolicy cookie (is it true? If so, we can run that script tag as the user has consented).
