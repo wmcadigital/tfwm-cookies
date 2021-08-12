@@ -1,4 +1,13 @@
+node_modules/
+_sourcemaps/
+_accessibility-reports/
+_accessibility-logs/
+build/
+!gitignore
+!package.json
+!package-lock.json
+**/a11y-report.json
+**/.tmp
+debug.log
 .snowpack
-build
-node_modules
 tsconfig.tsbuildinfo

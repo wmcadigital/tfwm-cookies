@@ -1,12 +1,15 @@
 {
   "name": "tfwm-cookies",
   "version": "0.0.0",
-  "description": "A library of typography, visual styles and user interface components which are documented for Transport for West Midlands.",
+  "description": "Logic to assist with users cookie preferences on Transport for West Midlands website and services.",
   "homepage": "https://github.com/wmcadigital/tfwm-cookies",
   "author": "WMCA",
-  "repository": "https://github.com/wmcadigital/tfwm-cookies.git",
+  "repository": "wmcadigital/tfwm-cookies",
   "copyright": "WMCA",
-  "sasslintConfig": ".sass-lint.yml",
+  "main": "build/dist/lib/index.js",
+  "files": [
+    "build/dist/lib/*"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -35,9 +38,8 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
-    "lint": "prettier --check \"src/**/*.{ts,js}\"",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "upgrade-packages": "ncu -u"
   },
   "devDependencies": {
@@ -48,12 +50,12 @@
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "eslint": "^7.32.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-watch": "^7.0.0",
     "npm-check-updates": "^11.8.3",
     "prettier": "^2.3.2",
+    "semantic-release": "^17.4.4",
     "snowpack": "^3.3.7",
     "typescript": "^4.3.5"
   }
