@@ -11,12 +11,12 @@ export const getCookiePolicy = (): CookiesPolicy => {
 
 const updateManageCheckboxesInDOM = (cookieManageForm: HTMLElement) => {
   const cookiesOptions = cookieManageForm.querySelectorAll<HTMLFormElement>(
-    '.wmnds-fe-checkboxes__input',
+    '.wmnds-fe-checkboxes__input'
   );
   const currentOptions = [
     getCookiePolicy()?.essential,
     getCookiePolicy()?.functional,
-    getCookiePolicy()?.performance,
+    getCookiePolicy()?.performance
   ];
 
   if (cookiesOptions)
@@ -27,7 +27,7 @@ const updateManageCheckboxesInDOM = (cookieManageForm: HTMLElement) => {
 
 export const updateCookiePreferences = () => {
   const cookieManageForm = document.querySelector<HTMLElement>(
-    '.wmnds-cookies-manager__preferences',
+    '.wmnds-cookies-manager__preferences'
   );
 
   if (!cookieManageForm) return;
@@ -36,15 +36,11 @@ export const updateCookiePreferences = () => {
   updateManageCheckboxesInDOM(cookieManageForm);
 };
 
-export const setCookiePolicy = (
-  essential: boolean,
-  functional: boolean,
-  performance: boolean,
-) => {
+export const setCookiePolicy = (essential: boolean, functional: boolean, performance: boolean) => {
   const cookieValue = {
     essential,
     functional,
-    performance,
+    performance
   };
   setCookie('cookies-policy', JSON.stringify(cookieValue), 181);
   updateCookiePreferences();

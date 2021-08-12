@@ -5,7 +5,7 @@ import {
   getCookie,
   setCookiePolicy,
   showCookieBanner,
-  updateCookiePreferences,
+  updateCookiePreferences
 } from '@app/lib/helpers';
 
 import type { CookieTypes } from '@app/lib/types';
@@ -13,7 +13,7 @@ import type { CookieTypes } from '@app/lib/types';
 const removeThirdPartyCookies = () => {
   const cookies = document.cookie.split(';'); // Get all cookies and split to an array
 
-  cookies.forEach((cookie) => {
+  cookies.forEach(cookie => {
     const trimCookie = cookie.trim();
     if (!trimCookie.startsWith('_')) return; // If the cookie doesn't start with underscore, then it's most likely one of ours...so, return!
     document.cookie = `${trimCookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`; // Otherwise set the cookie to blank value and expiry to a date in the past (this will delete that cookie)
@@ -27,13 +27,13 @@ const checkCookie = (cname: string): boolean => {
 
 const updateAndShowSuccessMessage = () => {
   const successMessage = document.querySelector<HTMLElement>(
-    '.wmnds-cookies-manager__success-message',
+    '.wmnds-cookies-manager__success-message'
   );
 
   if (!successMessage) return;
 
   const prevPageLink = successMessage.querySelector<HTMLLinkElement>(
-    '.wmnds-cookies-manager__previous-page a',
+    '.wmnds-cookies-manager__previous-page a'
   );
   // display the success message (updated)
   successMessage.style.display = 'block';
@@ -44,10 +44,7 @@ const updateAndShowSuccessMessage = () => {
   const { referrer } = document;
 
   // Check if user came directly to the manage page...
-  if (
-    (referrer === '' || referrer === window.location.href) &&
-    prevPageLink.parentElement
-  ) {
+  if ((referrer === '' || referrer === window.location.href) && prevPageLink.parentElement) {
     // If so, then hide the prev page link
     prevPageLink.parentElement.style.display = 'none';
   } else {
@@ -61,9 +58,8 @@ const savePreferences = (e: Event, cookieForm: Element) => {
 
   // Return boolean based on if the checkbox is checked for that cookie type
   const isCheckboxCheckedFor = (name: CookieTypes) =>
-    cookieForm.querySelector<HTMLFormElement>(
-      `.wmnds-fe-checkboxes__input[name="${name}-cookies"]`,
-    )?.checked;
+    cookieForm.querySelector<HTMLFormElement>(`.wmnds-fe-checkboxes__input[name="${name}-cookies"]`)
+      ?.checked;
 
   // If the last box (performance) is not true, then remove all third party cookies
   if (!isCheckboxCheckedFor('performance')) removeThirdPartyCookies();
@@ -72,7 +68,7 @@ const savePreferences = (e: Event, cookieForm: Element) => {
   setCookiePolicy(
     isCheckboxCheckedFor('essential'),
     isCheckboxCheckedFor('functional'),
-    isCheckboxCheckedFor('performance'),
+    isCheckboxCheckedFor('performance')
   );
   setCookie('cookies-preference', true, 181);
   updateAndShowSuccessMessage(); // Show success message and prev link within it (if available)
@@ -92,18 +88,14 @@ const cookiesScan = () => {
 
 // START HERE
 const manageCookies = () => {
-  const isInIframe =
-    window.frameElement && window.frameElement.nodeName === 'IFRAME'; // check if we are in an iframe
+  const isInIframe = window.frameElement && window.frameElement.nodeName === 'IFRAME'; // check if we are in an iframe
 
   // Creation of default Cookies permissions when the DOM is fully loaded
   if (!isInIframe) cookiesScan();
 
   // When Safe Preferences button is triggered
   const cookieForm = document.querySelector('.wmnds-cookies-manager__form');
-  if (cookieForm)
-    cookieForm.addEventListener('submit', (e) =>
-      savePreferences(e, cookieForm),
-    );
+  if (cookieForm) cookieForm.addEventListener('submit', e => savePreferences(e, cookieForm));
 };
 
 export default manageCookies;
