@@ -1,6 +1,7 @@
 import cookieBanner from './core/cookieBanner';
 import manageCookies from './core/manageCookies';
 import cookiePolicyLogic from './core/cookiePolicyLogic';
+import { getCookie } from './helpers';
 
 // Wait until everything is loaded
 const tfwmCookieLogic = () => {
@@ -9,4 +10,4 @@ const tfwmCookieLogic = () => {
   manageCookies();
 };
 
-export default tfwmCookieLogic;
+export { getCookie, tfwmCookieLogic };
