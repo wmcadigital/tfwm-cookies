@@ -43,6 +43,8 @@
     "upgrade-packages": "ncu -u"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "@snowpack/plugin-run-script": "^2.3.0",
     "@snowpack/plugin-typescript": "^1.2.1",
     "@types/node": "^16.4.13",
