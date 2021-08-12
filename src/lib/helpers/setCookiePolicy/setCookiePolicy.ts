@@ -37,14 +37,14 @@ export const updateCookiePreferences = () => {
 };
 
 export const setCookiePolicy = (
-  essentialValue: boolean,
-  functionalValue: boolean,
-  performanceValue: boolean,
+  essential: boolean,
+  functional: boolean,
+  performance: boolean,
 ) => {
   const cookieValue = {
-    essential: essentialValue,
-    functional: functionalValue,
-    performance: performanceValue,
+    essential,
+    functional,
+    performance,
   };
   setCookie('cookies-policy', JSON.stringify(cookieValue), 181);
   updateCookiePreferences();
