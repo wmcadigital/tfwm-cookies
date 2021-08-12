@@ -1,11 +1,15 @@
 {
   "name": "tfwm-cookies",
   "version": "0.0.0",
-  "description": "A library of typography, visual styles and user interface components which are documented for Transport for West Midlands.",
+  "description": "Logic to assist with users cookie preferences on Transport for West Midlands website and services.",
   "homepage": "https://github.com/wmcadigital/tfwm-cookies",
   "author": "WMCA",
-  "repository": "https://github.com/wmcadigital/tfwm-cookies.git",
+  "repository": "wmcadigital/tfwm-cookies",
   "copyright": "WMCA",
+  "main": "build/dist/lib/index.js",
+  "files": [
+    "build/dist/lib/*"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -53,6 +57,7 @@
     "eslint-watch": "^7.0.0",
     "npm-check-updates": "^11.8.3",
     "prettier": "^2.3.2",
+    "semantic-release": "^17.4.4",
     "snowpack": "^3.3.7",
     "typescript": "^4.3.5"
   }

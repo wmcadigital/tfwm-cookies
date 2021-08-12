@@ -36,8 +36,8 @@ export default {
     sourcemap: 'external',
     splitting: false,
     treeshake: true,
-    manifest: true,
-    minify: false,
+    manifest: false,
+    minify: true,
     target: 'es2017',
   },
   packageOptions: {
