@@ -8,7 +8,7 @@
   "copyright": "WMCA",
   "main": "build/dist/lib/index.js",
   "files": [
-    "build/dist/lib/*"
+    "/build/dist/lib/**/*"
   ],
   "browserslist": {
     "production": [
