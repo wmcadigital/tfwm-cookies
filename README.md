@@ -1,3 +1,37 @@
+# TfWM Cookies
+
+Logic to assist with users cookie preferences on Transport for West Midlands website and services.
+
+## Installation
+
+Install tfwm-cookies with npm
+
+```bash
+  npm install tfwm-cookies
+```
+
+## Features
+
+- Contains 3 core libraries `cookieBanner`, `manageCookies` and `cookiePolicyLogic`
+- Contains 1 helper method `getCookiePolicy`
+- Automatically injects TfWM's Google Tag Manager and Hotjar code if user has correct cookie preferences
+- Allows for third-party libraries to be restricted unless a user has enabled a specific cookie preference
+
+### `cookieBanner` methhod
+
+## Usage/Examples
+
+```javascript
+import { cookieBanner, manageCookies, cookiePolicyLogic } from 'tfwm-cookies';
+
+// Wait until everything is loaded
+window.addEventListener('load', () => {
+  cookieBanner();
+  manageCookies();
+  cookiePolicyLogic();
+});
+```
+
 # New Project
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
