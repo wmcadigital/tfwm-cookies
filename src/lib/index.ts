@@ -1,13 +1,4 @@
-import cookieBanner from './core/cookieBanner';
-import manageCookies from './core/manageCookies';
-import cookiePolicyLogic from './core/cookiePolicyLogic';
-import { getCookiePolicy } from './helpers';
-
-// Wait until everything is loaded
-const tfwmCookieLogic = () => {
-  cookiePolicyLogic();
-  cookieBanner();
-  manageCookies();
-};
-
-export { getCookiePolicy, tfwmCookieLogic };
+export { default as cookieBanner } from './core/cookieBanner';
+export { default as manageCookies } from './core/manageCookies';
+export { default as cookiePolicyLogic } from './core/cookiePolicyLogic';
+export { getCookiePolicy } from './helpers';

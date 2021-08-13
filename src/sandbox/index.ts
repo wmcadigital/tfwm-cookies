@@ -1,6 +1,8 @@
-import { tfwmCookieLogic } from '@app/lib';
+import { cookieBanner, manageCookies, cookiePolicyLogic } from '@app/lib';
 
 // Wait until everything is loaded
 window.addEventListener('load', () => {
-  tfwmCookieLogic();
+  cookieBanner();
+  manageCookies();
+  cookiePolicyLogic();
 });
